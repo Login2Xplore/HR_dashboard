@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Change Password</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script> mystatus = "in";myname = "change";</script>
+        <script type="text/javascript" src="resources/js/jpdb-commons.js"></script>
+        <script type="text/javascript" src="resources/js/my-commons.js"></script>
+        <script type="text/javascript" src="resources/js/change.js"></script>
+        <script>checkSession();</script>
+    </head>
+    <body >
+        <div class="container">
+            <div id="myHeader"></div>
+            <div class="row text-center">
+                <div class="myform">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Old Password : </label>
+                            <div class="col-sm-4">
+                                <input type="password" id="oldpwd" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">New Password : </label>
+                            <div class="col-sm-4">
+                                <input type="password" id="newpwd" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Re-type Password : </label>
+                            <div class="col-sm-4">
+                                <input type="password" id="newpwd1" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                    <button class="btn btn-primary btn-lg" onclick="checkPwd()">Change Password</button>
+                </div>
+            </div>
+            <div id="myFooter">   </div>   
+        </div>
+        <script>loadHeader(); loadFooter();</script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>mystatus = "in"; myname = "form";</script>
+        <script type="text/javascript" src="resources/js/jpdb-commons.js"></script>
+        <script type="text/javascript" src="resources/js/my-commons.js"></script>
+        <script type="text/javascript" src="resources/js/form.js"></script>
+        <script>checkSession();</script>
+    </head>
+    <body >
+        <div class="container">
+            <div id="myHeader"></div>
+            <div class="row text-center">
+                <form id="empform" method="post" >
+                    <div id="myEmpFormMsg" class="alert-danger"></div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Employee ID : </label>
+                        <div class="col-sm-4">
+                            <input type="text" id="empid" class="form-control " onchange="checkID()">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Employee Name: </label>
+                        <div class="col-sm-4">
+                            <input type="text" id="empname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Basic Salary: </label>
+                        <div class="col-sm-4">
+                            <input type="number" id="empsal" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label  col-sm-offset-3 col-sm-2 text-center">HRA : </label>
+                        <div class="col-sm-4">
+                            <input type="number" id="hra" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label  col-sm-offset-3 col-sm-2 text-center">DA : </label>
+                        <div class="col-sm-4">
+                            <input type="number" id="da" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label  col-sm-offset-3 col-sm-2 text-center">Deduction : </label>
+                        <div class="col-sm-4">
+                            <input type="number" id="deduct" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class=" row text-center">
+                <nav class="navbar navbar-default" style="border: none; text-align: center">
+                    <button type="button" class="btn btn-lg btn-primary" id="new" onclick="newForm()">New</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="save" onclick="saveData()" disabled>Save</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="edit" onclick="editData()" >Edit</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="change" onclick="changeData()" disabled>Change</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="reset" onclick="resetForm()" disabled>Reset</button>
+                </nav>
+                <nav class="navbar navbar-default" style="border: none; text-align: center">
+                    <button type="button" class="btn btn-lg btn-primary" id="first" onclick="getFirst()">First</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="prev" onclick="getPrev()" >Previous</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="next" onclick="getNext()" disabled>Next</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="last" onclick="getLast()">Last</button>
+                </nav>
+            </div>
+            <div id="myFooter">   </div>   
+        </div>
+        <script>loadHeader(); loadFooter(); getLast();</script>
+    </body>
+</html>

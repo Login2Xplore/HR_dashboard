@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            mystatus = "in";
+            myname = "profile";
+        </script>
+        <script type="text/javascript" src="resources/js/jpdb-commons.js"></script>
+        <script type="text/javascript" src="resources/js/my-commons.js"></script>
+        <script type="text/javascript" src="resources/js/profile.js"></script>
+        <script>checkSession();</script>
+    </head>
+    <body >
+        <div class="container">
+            <div id="myHeader"></div>
+            <div class="row text-center">
+                <div class="myform">
+                        <fieldset>
+                            <form id="empform" method="post">
+                                <h2>User Profile</h2>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Email : </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="proemail" class="form-control " disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Name: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="proname" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-offset-3 col-sm-2 text-center">Phone: </label>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="prophone" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </form>
+                        </fieldset>
+                        <div>
+                            <nav class="navbar navbar-default" style="border: none; text-align: center">
+                                <button type="button" class="btn btn-lg btn-primary" id="save" onclick="changeData()" disabled>Save</button>
+                                <button type="button" class="btn btn-lg btn-primary" id="edit" onclick="enableChange()" >Edit</button>
+                            </nav>
+                        </div>
+                    </div>
+            </div>
+            <div id="myFooter">   </div>   
+        </div>
+        <script>loadHeader(); loadFooter(); showUser(); </script>
+    </body>
+</html>
