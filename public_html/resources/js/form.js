@@ -23,7 +23,7 @@ function checkID() {
     var jsonStr = {
         id: empid
     };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "index", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, empRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest, "/api/irl");
     jQuery.ajaxSetup({async: true});
@@ -59,7 +59,7 @@ function newForm() {
 
 function resetForm() {
 
-    var getCurRequest = createGET_BY_RECORDRequest(connToken, "Employee", "index", localStorage.getItem("rec_no"));
+    var getCurRequest = createGET_BY_RECORDRequest(connToken, empDBName, empRelationName, localStorage.getItem("rec_no"));
     jQuery.ajaxSetup({async: false});
     var result = executeCommand(getCurRequest, irlPartUrl);
     showData(result);
@@ -159,7 +159,7 @@ function validateData() {
 }
 
 function getFirst() {
-    var getFirstRequest = createFIRST_RECORDRequest(connToken, "Employee", "index");
+    var getFirstRequest = createFIRST_RECORDRequest(connToken, empDBName, empRelationName);
     jQuery.ajaxSetup({async: false});
     var result = executeCommand(getFirstRequest, irlPartUrl);
     showData(result);
@@ -178,7 +178,7 @@ function getPrev() {
         $("#prev").prop("disabled", true);
         $("#first").prop("disabled", true);
     }
-    var getPrevRequest = createPREV_RECORDRequest(connToken, "Employee", "index", r);
+    var getPrevRequest = createPREV_RECORDRequest(connToken, empDBName, empRelationName, r);
     jQuery.ajaxSetup({async: false});
     var result = executeCommand(getPrevRequest, irlPartUrl);
     showData(result);
@@ -194,7 +194,7 @@ function getPrev() {
 function getNext() {
     var r = localStorage.getItem("rec_no");
 
-    var getPrevRequest = createNEXT_RECORDRequest(connToken, "Employee", "index", r);
+    var getPrevRequest = createNEXT_RECORDRequest(connToken, empDBName, empRelationName, r);
     jQuery.ajaxSetup({async: false});
     var result = executeCommand(getPrevRequest, irlPartUrl);
     showData(result);
@@ -203,7 +203,7 @@ function getNext() {
 }
 
 function getLast() {
-    var getLastRequest = createLAST_RECORDRequest(connToken, "Employee", "index");
+    var getLastRequest = createLAST_RECORDRequest(connToken, empDBName, empRelationName);
     jQuery.ajaxSetup({async: false});
     var result = executeCommand(getLastRequest, irlPartUrl);
     if (result.status === 200) {
@@ -229,7 +229,7 @@ function saveData() {
     if (jsonStrObj === "") {
         return "";
     }
-    var setRequest = createSETRequest(connToken, jsonStrObj, "Employee", "index", "PUT", index_prim);
+    var setRequest = createSETRequest(connToken, jsonStrObj, empDBName, empRelationName, "PUT", index_prim);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");
     if (jsonObj.status !== 200) {
@@ -262,7 +262,7 @@ function editData() {
 function changeData() {
 
     jsonChg = validateData();
-    var setRequest = createSETRequest(connToken, jsonChg, "Employee", "index", "UPDATE", index_prim);
+    var setRequest = createSETRequest(connToken, jsonChg, empDBName, empRelationName, "UPDATE", index_prim);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");
     jQuery.ajaxSetup({async: true});

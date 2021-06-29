@@ -8,7 +8,7 @@ function showUser() {
     var jsonStr = {
         email: email
     };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "user", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, userRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest, irlPartUrl);
     if (jsonObj.status === 200) {
@@ -39,7 +39,7 @@ function changeData() {
         phone: phone
     };
 
-    var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), "Employee", "user", "DEFAULT", primaryKey = user_prim, uniqueKeys = user_unique);
+    var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), empDBName, userRelationName, "DEFAULT", primaryKey = user_prim, uniqueKeys = user_unique);
     var responseObj = executeCommand(setRequest, "/api/iml/set");
     if (responseObj.status === 200) {
         alert("Update succesful!");

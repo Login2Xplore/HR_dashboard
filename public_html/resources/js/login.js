@@ -9,7 +9,7 @@ function checkUser() {
     var jsonStr = {
         email: email,
         password : pwd    };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "user", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, userRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest,irlPartUrl);
     if (jsonObj.status === 400) {
@@ -26,7 +26,7 @@ function checkUser() {
 
 function createSession(email) {
 //    console.log('creating token now');
-    var sessionTokenStatus = createJpdbSessionToken(connToken, 1, "Employee", "user", email);
+    var sessionTokenStatus = createJpdbSessionToken(connToken, 1, empDBName, userRelationName, email);
     if (sessionTokenStatus === 200) {
         if(localStorage.getItem("req-url") !== null){
             window.location.href = localStorage.getItem("req-url");

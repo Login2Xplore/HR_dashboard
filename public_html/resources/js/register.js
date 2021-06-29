@@ -70,7 +70,7 @@ function saveData() {
     if (jsonStr === "") {
         return;
     }
-    var setRequest = createSETRequest(connToken, jsonStr, "Employee", "user", "PUT", user_prim, user_unique);
+    var setRequest = createSETRequest(connToken, jsonStr, empDBName, userRelationName, "PUT", user_prim, user_unique);
     console.log(setRequest);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");
@@ -95,7 +95,7 @@ function checkEmail()
     var jsonStr = {
         email: e
     };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "user", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, userRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest, "/api/irl");
     jQuery.ajaxSetup({async: true});
@@ -116,7 +116,7 @@ function checkPhone()
     var jsonStr = {
         phone: p
     };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "user", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, userRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest, "/api/irl");
     jQuery.ajaxSetup({async: true});

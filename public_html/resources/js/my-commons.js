@@ -1,20 +1,36 @@
-//setBaseUrl("http://localhost:5572");
-var connToken = "90937190|-31948797713594830|90931865";
 
-var myname, mystatus;
+var jpdbBaseURL = "http://api.login2explore.com:5577";
+var connToken = "90936571|-31948846965960543|90934225";
+
+//var jpdbBaseURL = "http://api.jsonpowerdb.com:5577";
+//var connToken = "1429107693|-280740700383286763|1429107683";
+
+var jpdbIRL = "/api/irl";
+var jpdbIML = "/api/iml";
+var empDBName = "HR-DEPT-DB";
+var empRelationName = "EmployeeRel";
+var userRelationName = "UserRel";
+
+setBaseUrl(jpdbBaseURL);
+
+var myName, myStatus;
 var index_prim = "id";
 var user_prim = "email";
 var user_unique = ["phone"];
 function checkSession() {
-    var isSession = isJpdbSessionTokenExists(connToken, "Employee", "user");
-    if (isSession === 400) {
-        if (mystatus === "in") {
-            localStorage.setItem("req-url", window.location.href);
+    var sessionStatus = isJpdbSessionTokenExists(connToken, empDBName, userRelationName);
+    if (sessionStatus === 400) {
+        if (myStatus === "in") {
             window.location.href = "login.html";
-        } else
+        } else {
             return;
-    } else if (isSession === 200) {
-        return;
+        }
+    } else if (sessionStatus === 200) {
+        if (myStatus === "out") {
+            window.location.href = "home.html";
+        } else {
+            return;
+        }
     }
     return;
 }
@@ -32,16 +48,16 @@ function loadHeader() {
 }
 
 function currentTab() {
-    if (myname === "home") {
+    if (myName === "home") {
         $("#myhome").prop("class", "active");
     }
-    if (myname === "profile") {
+    if (myName === "profile") {
         $("#myprofile").prop("class", "active");
     }
-    if (myname === "change") {
+    if (myName === "change") {
         $("#mychange").prop("class", "active");
     }
-    if (myname === "form") {
+    if (myName === "form") {
         $("#myform").prop("class", "active");
     }
     return;
@@ -52,7 +68,7 @@ function loadFooter() {
 }
 
 function deleteSession() {
-    var removeSession = removeSessionTokenFromJPDB(connToken, "Employee", "user");
+    var removeSession = removeSessionTokenFromJPDB(connToken, empDBName, userRelationName);
     if (removeSession === 200) {
         console.log("Session removed");
         localStorage.removeItem("rec_no");

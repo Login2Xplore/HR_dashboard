@@ -3,7 +3,7 @@ function sendMail() {
     var jsonStr = {
         email: mail
     };
-    var getRequest = createGET_BY_KEYRequest(connToken, "Employee", "user", JSON.stringify(jsonStr));
+    var getRequest = createGET_BY_KEYRequest(connToken, empDBName, userRelationName, JSON.stringify(jsonStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRequest, irlPartUrl);
     if (jsonObj.status === 200) {
@@ -21,7 +21,7 @@ function sendMail() {
                 email : mail,
                 password: pwd,
             };
-            var setRequest = createSETRequest(connToken , JSON.stringify(changeObj), "Employee", "user", "UPDATE", user_prim, user_unique);
+            var setRequest = createSETRequest(connToken , JSON.stringify(changeObj), empDBName, userRelationName, "UPDATE", user_prim, user_unique);
             var responseObj = executeCommand(setRequest, "/api/iml/set");
             if (responseObj.status === 200){
                 alert("Mail sent!");

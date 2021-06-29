@@ -40,7 +40,7 @@ function changePwd(oldpwd, newpwd) {
         email: email,
         password : oldpwd,
     };
-    var getRecordRequest = createGET_BY_KEYRequest(connToken , "Employee", "user", JSON.stringify(jsonObjStr));
+    var getRecordRequest = createGET_BY_KEYRequest(connToken , empDBName, userRelationName, JSON.stringify(jsonObjStr));
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(getRecordRequest, irlPartUrl);
     if (jsonObj.status === 200) {
@@ -50,7 +50,7 @@ function changePwd(oldpwd, newpwd) {
             password: newpwd,
         };
 
-        var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), "Employee", "user", "DEFAULT", primaryKey=user_prim, uniqueKeys=user_unique);
+        var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), empDBName, userRelationName, "DEFAULT", primaryKey=user_prim, uniqueKeys=user_unique);
         var responseObj = executeCommand(setRequest, "/api/iml/set");
         if (responseObj.status === 200) {
             alert("Password updated succesfully!");
