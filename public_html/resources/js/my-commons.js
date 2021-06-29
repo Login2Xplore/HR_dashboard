@@ -18,7 +18,9 @@ var index_prim = "id";
 var user_prim = "email";
 var user_unique = ["phone"];
 function checkSession() {
+    console.log("Inside: checkSession()");
     var sessionStatus = isJpdbSessionTokenExists(connToken, empDBName, userRelationName);
+    console.log("    sessionStatus: " + sessionStatus);
     if (sessionStatus === 400) {
         if (myStatus === "in") {
             window.location.href = "login.html";
