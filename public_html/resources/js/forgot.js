@@ -21,7 +21,7 @@ function sendMail() {
                 email : mail,
                 password: pwd,
             };
-            var setRequest = createSETRequest(connToken , JSON.stringify(changeObj), empDBName, userRelationName, "UPDATE", user_prim, user_unique);
+            var setRequest = createSETRequest(connToken , JSON.stringify(changeObj), empDBName, userRelationName, "UPDATE", pkUserEmailID, ukUserMobileNo);
             var responseObj = executeCommand(setRequest, "/api/iml/set");
             if (responseObj.status === 200){
                 alert("Mail sent!");

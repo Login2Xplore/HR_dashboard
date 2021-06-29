@@ -229,7 +229,7 @@ function saveData() {
     if (jsonStrObj === "") {
         return "";
     }
-    var setRequest = createSETRequest(connToken, jsonStrObj, empDBName, empRelationName, "PUT", index_prim);
+    var setRequest = createSETRequest(connToken, jsonStrObj, empDBName, empRelationName, "PUT", pkEmpID);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");
     if (jsonObj.status !== 200) {
@@ -262,7 +262,7 @@ function editData() {
 function changeData() {
 
     jsonChg = validateData();
-    var setRequest = createSETRequest(connToken, jsonChg, empDBName, empRelationName, "UPDATE", index_prim);
+    var setRequest = createSETRequest(connToken, jsonChg, empDBName, empRelationName, "UPDATE", pkEmpID);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");
     jQuery.ajaxSetup({async: true});

@@ -14,9 +14,9 @@ var userRelationName = "UserRel";
 setBaseUrl(jpdbBaseURL);
 
 var myName, myStatus;
-var index_prim = "id";
-var user_prim = "email";
-var user_unique = ["phone"];
+var pkEmpID = "id";
+var pkUserEmailID = "email";
+var ukUserMobileNo = ["phone"];
 function checkSession() {
     console.log("Inside: checkSession()");
     var sessionStatus = isJpdbSessionTokenExists(connToken, empDBName, userRelationName);

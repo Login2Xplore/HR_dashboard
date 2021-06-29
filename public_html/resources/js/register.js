@@ -70,7 +70,7 @@ function saveData() {
     if (jsonStr === "") {
         return;
     }
-    var setRequest = createSETRequest(connToken, jsonStr, empDBName, userRelationName, "PUT", user_prim, user_unique);
+    var setRequest = createSETRequest(connToken, jsonStr, empDBName, userRelationName, "PUT", pkUserEmailID, ukUserMobileNo);
     console.log(setRequest);
     jQuery.ajaxSetup({async: false});
     var jsonObj = executeCommand(setRequest, "/api/iml/set");

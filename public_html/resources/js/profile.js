@@ -39,7 +39,7 @@ function changeData() {
         phone: phone
     };
 
-    var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), empDBName, userRelationName, "DEFAULT", primaryKey = user_prim, uniqueKeys = user_unique);
+    var setRequest = createSETRequest(connToken, JSON.stringify(changeObj), empDBName, userRelationName, "DEFAULT", primaryKey = pkUserEmailID, uniqueKeys = ukUserMobileNo);
     var responseObj = executeCommand(setRequest, "/api/iml/set");
     if (responseObj.status === 200) {
         alert("Update succesful!");
