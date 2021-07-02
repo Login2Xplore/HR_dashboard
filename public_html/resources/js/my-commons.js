@@ -1,9 +1,9 @@
 
-var jpdbBaseURL = "http://api.login2explore.com:5577";
-var connToken = "90936571|-31948846965960543|90934225";
+//var jpdbBaseURL = "http://api.login2explore.com:5577";
+//var connToken = "90936571|-31948846965960543|90934225";
 
-//var jpdbBaseURL = "http://api.jsonpowerdb.com:5577";
-//var connToken = "1429107693|-280740700383286763|1429107683";
+var jpdbBaseURL = "http://api.jsonpowerdb.com:5572";
+var connToken = "1429107685|-280740641509870960|1429107500";
 
 var jpdbIRL = "/api/irl";
 var jpdbIML = "/api/iml";
